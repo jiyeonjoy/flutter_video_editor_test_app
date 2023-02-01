@@ -85,11 +85,27 @@ class _VideoEditorState extends State<VideoEditor> {
   final _isExporting = ValueNotifier<bool>(false);
   final double height = 60;
 
-  late final VideoEditorController _controller = VideoEditorController.file(
-    widget.file,
-    minDuration: const Duration(seconds: 1),
-    maxDuration: const Duration(seconds: 10),
-  );
+  late final VideoEditorController _controller =
+      VideoEditorController.file(widget.file,
+          minDuration: const Duration(seconds: 1),
+          maxDuration: const Duration(seconds: 10),
+          trimStyle: TrimSliderStyle(
+            lineWidth: 3,
+            background: Colors.red,
+            lineColor: Colors.orange,
+            onTrimmedColor: Colors.yellow,
+            onTrimmingColor: Colors.green,
+          ),
+          coverStyle: const CoverSelectionStyle(
+            selectedBorderColor: Colors.blue,
+          ),
+          cropStyle: const CropGridStyle(
+            croppingBackground: Colors.indigo,
+            background: Colors.purple,
+            gridLineColor: Colors.brown,
+            boundariesColor: Colors.pink,
+            selectedBoundariesColor: Colors.yellowAccent,
+          ));
 
   @override
   void initState() {
