@@ -88,10 +88,10 @@ class _VideoEditorState extends State<VideoEditor> {
   late final VideoEditorController _controller =
       VideoEditorController.file(widget.file,
           minDuration: const Duration(seconds: 1),
-          maxDuration: const Duration(seconds: 10),
+          maxDuration: const Duration(seconds: 20),
           trimStyle: TrimSliderStyle(
             lineWidth: 3,
-            background: Colors.red,
+            // background: Colors.red,
             lineColor: Colors.orange,
             onTrimmedColor: Colors.yellow,
             onTrimmingColor: Colors.green,
@@ -408,6 +408,7 @@ class _VideoEditorState extends State<VideoEditor> {
         child: TrimSlider(
           controller: _controller,
           height: height,
+          maxViewportRatio: 20,
           horizontalMargin: height / 4,
           child: TrimTimeline(
             controller: _controller,
